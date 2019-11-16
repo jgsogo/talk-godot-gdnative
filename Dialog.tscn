@@ -19,7 +19,6 @@ scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 2 )
 
 [node name="PopupPanel" type="WindowDialog" parent="."]
-visible = true
 margin_left = -330.0
 margin_top = -40.0
 margin_right = -90.0
