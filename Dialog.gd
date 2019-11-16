@@ -6,6 +6,10 @@ signal popup_hide
 onready var msg_box := $PopupPanel/Contents/GhostMsg
 onready var input := $PopupPanel/Contents/Input
 
+func _ready():
+	msg_box.set_scroll_follow(true)
+	pass
+
 func add_text(new_text:String) -> void:
 	msg_box.text += new_text + "\n"
 
