@@ -6,3 +6,8 @@ extends Node2D
 func _on_Dialog_text_sent(msg)->void:
 	yield(get_tree().create_timer(1), "timeout")
 	$Dialog.add_text("Respuesta automática a " + msg)
+
+
+func _on_Dialog_popup_hide():
+	var motion = Vector2(-12800, 0)
+	$MainCharacter.move_and_slide(motion)

@@ -1,6 +1,7 @@
 extends Area2D
 
 signal text_sent(msg)
+signal popup_hide
 
 onready var msg_box := $PopupPanel/Contents/GhostMsg
 onready var input := $PopupPanel/Contents/Input
@@ -12,7 +13,6 @@ func _on_Dialog_body_entered(body):
 	$Ghost.visible = true
 	$PopupPanel.popup_centered()
 	get_tree().paused = true
-	print("Paused")
 
 
 func _on_Dialog_body_exited(body):
@@ -24,5 +24,5 @@ func _on_SendButton_pressed():
 	input.text = ""
 
 func _on_PopupPanel_popup_hide():
-	print("unpaused")
 	get_tree().paused = false
+	emit_signal("popup_hide")
