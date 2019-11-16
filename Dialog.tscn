@@ -28,11 +28,11 @@ margin_bottom = 160.0
 [node name="Contents" type="VBoxContainer" parent="PopupPanel"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 196.0
-margin_bottom = 196.0
+margin_right = 236.0
+margin_bottom = 194.0
 
 [node name="Title" type="Label" parent="PopupPanel/Contents"]
-margin_right = 192.0
+margin_right = 232.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0.368627, 0.8, 0.101961, 1 )
 custom_colors/font_outline_modulate = Color( 0.741176, 0.113725, 0.113725, 1 )
@@ -42,21 +42,23 @@ align = 1
 
 [node name="Input" type="LineEdit" parent="PopupPanel/Contents"]
 margin_top = 18.0
-margin_right = 192.0
+margin_right = 232.0
 margin_bottom = 42.0
 
 [node name="SendButton" type="Button" parent="PopupPanel/Contents"]
 margin_top = 46.0
-margin_right = 192.0
+margin_right = 232.0
 margin_bottom = 66.0
 text = "Send"
 
 [node name="GhostMsg" type="TextEdit" parent="PopupPanel/Contents"]
 margin_top = 70.0
-margin_right = 192.0
-margin_bottom = 156.0
-rect_min_size = Vector2( 192, 86 )
-text = "texto texto texto texto texto texto texto textotexto textotexto textotexto textotexto texto"
+margin_right = 232.0
+margin_bottom = 190.0
+rect_min_size = Vector2( 232, 120 )
+readonly = true
+context_menu_enabled = false
 wrap_enabled = true
 [connection signal="body_entered" from="." to="." method="_on_Dialog_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Dialog_body_exited"]
+[connection signal="pressed" from="PopupPanel/Contents/SendButton" to="." method="_on_SendButton_pressed"]
