@@ -4,7 +4,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40, 40 )
+extents = Vector2( 100, 130 )
 
 [node name="Dialog" type="Area2D"]
 script = ExtResource( 1 )
@@ -13,26 +13,27 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Ghost" type="Sprite" parent="."]
+visible = false
 modulate = Color( 0.811765, 0.223529, 0.109804, 0.462745 )
 position = Vector2( 20.8, 0 )
-scale = Vector2( 0.6, 0.6 )
+scale = Vector2( 2.2, 2.2 )
 texture = ExtResource( 2 )
 
 [node name="PopupPanel" type="PopupPanel" parent="."]
 pause_mode = 2
-margin_left = -330.0
-margin_top = -40.0
-margin_right = -90.0
-margin_bottom = 160.0
+margin_left = -570.0
+margin_top = -120.0
+margin_right = -134.0
+margin_bottom = 260.0
 
 [node name="Contents" type="VBoxContainer" parent="PopupPanel"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 236.0
-margin_bottom = 194.0
+margin_right = 432.0
+margin_bottom = 376.0
 
 [node name="Title" type="Label" parent="PopupPanel/Contents"]
-margin_right = 232.0
+margin_right = 428.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0.368627, 0.8, 0.101961, 1 )
 custom_colors/font_outline_modulate = Color( 0.741176, 0.113725, 0.113725, 1 )
@@ -42,20 +43,20 @@ align = 1
 
 [node name="Input" type="LineEdit" parent="PopupPanel/Contents"]
 margin_top = 18.0
-margin_right = 232.0
+margin_right = 428.0
 margin_bottom = 42.0
 
 [node name="SendButton" type="Button" parent="PopupPanel/Contents"]
 margin_top = 46.0
-margin_right = 232.0
+margin_right = 428.0
 margin_bottom = 66.0
 text = "Send"
 
 [node name="GhostMsg" type="RichTextLabel" parent="PopupPanel/Contents"]
 margin_top = 70.0
-margin_right = 232.0
-margin_bottom = 190.0
-rect_min_size = Vector2( 232, 120 )
+margin_right = 428.0
+margin_bottom = 370.0
+rect_min_size = Vector2( 232, 300 )
 scroll_following = true
 [connection signal="body_entered" from="." to="." method="_on_Dialog_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Dialog_body_exited"]
