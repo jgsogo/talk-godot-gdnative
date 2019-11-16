@@ -60,6 +60,7 @@ rect_min_size = Vector2( 232, 300 )
 scroll_following = true
 [connection signal="body_entered" from="." to="." method="_on_Dialog_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Dialog_body_exited"]
+[connection signal="about_to_show" from="PopupPanel" to="." method="_on_PopupPanel_about_to_show"]
 [connection signal="popup_hide" from="PopupPanel" to="." method="_on_PopupPanel_popup_hide"]
 [connection signal="text_entered" from="PopupPanel/Contents/Input" to="." method="_on_Input_text_entered"]
 [connection signal="pressed" from="PopupPanel/Contents/SendButton" to="." method="_on_SendButton_pressed"]
