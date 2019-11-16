@@ -1,6 +1,6 @@
 extends Area2D
 
-signal text_sent
+signal text_sent(msg)
 
 onready var msg_box := $PopupPanel/Contents/GhostMsg
 onready var input := $PopupPanel/Contents/Input
@@ -20,5 +20,5 @@ func _on_Dialog_body_exited(body):
 
 func _on_SendButton_pressed():
 	msg_box.text += "$ " + input.text + "\n"
+	emit_signal("text_sent", input.text)
 	input.text = ""
-	emit_signal("text_sent")
