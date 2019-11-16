@@ -26,3 +26,7 @@ func _on_SendButton_pressed():
 func _on_PopupPanel_popup_hide():
 	get_tree().paused = false
 	emit_signal("popup_hide")
+
+
+func _on_Input_text_entered(new_text):
+	_on_SendButton_pressed()
