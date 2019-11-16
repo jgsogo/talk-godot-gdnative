@@ -19,6 +19,7 @@ scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 2 )
 
 [node name="PopupPanel" type="PopupPanel" parent="."]
+pause_mode = 2
 margin_left = -330.0
 margin_top = -40.0
 margin_right = -90.0
@@ -60,4 +61,5 @@ context_menu_enabled = false
 wrap_enabled = true
 [connection signal="body_entered" from="." to="." method="_on_Dialog_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Dialog_body_exited"]
+[connection signal="popup_hide" from="PopupPanel" to="." method="_on_PopupPanel_popup_hide"]
 [connection signal="pressed" from="PopupPanel/Contents/SendButton" to="." method="_on_SendButton_pressed"]

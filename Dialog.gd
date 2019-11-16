@@ -11,14 +11,18 @@ func add_text(new_text:String) -> void:
 func _on_Dialog_body_entered(body):
 	$Ghost.visible = true
 	$PopupPanel.popup_centered()
+	get_tree().paused = true
+	print("Paused")
 
 
 func _on_Dialog_body_exited(body):
 	$Ghost.visible = false
-	$PopupPanel.hide()
-
 
 func _on_SendButton_pressed():
 	msg_box.text += "$ " + input.text + "\n"
 	emit_signal("text_sent", input.text)
 	input.text = ""
+
+func _on_PopupPanel_popup_hide():
+	print("unpaused")
+	get_tree().paused = false
