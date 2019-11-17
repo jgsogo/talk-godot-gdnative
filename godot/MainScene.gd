@@ -16,8 +16,6 @@ func _on_GodotGameIA_callback_disconnected(chat_id, msg):
 
 
 func _on_Dialog_text_sent(msg)->void:
-	#yield(get_tree().create_timer(1), "timeout")
-	#$Dialog.add_text("Respuesta automática a " + msg)
 	GodotGameIA.send_message(msg, chat_id)
 
 func gdscript_callback(msg):
