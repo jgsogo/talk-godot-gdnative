@@ -7,7 +7,7 @@
 namespace godot {
 
     struct GodotGameIA::Impl {
-        Impl(const char* token) : dialog(token) {
+        explicit Impl(const char* token) : dialog(token) {
             if (!token) {
                 Godot::print("Need to provide token!");
                 //throw std::runtime_error("Need to provide token!");
@@ -20,7 +20,7 @@ namespace godot {
         Godot::print("GodotGameIA::GodotGameIA");
     }
 
-    GodotGameIA::~GodotGameIA() {}
+    GodotGameIA::~GodotGameIA() = default;
 
     void GodotGameIA::_init() {
         Godot::print("GodotGameIA::_init");
@@ -29,7 +29,9 @@ namespace godot {
     void GodotGameIA::_register_methods() {
         register_method("send_message", &GodotGameIA::send_message);
         register_method("register_callback", &GodotGameIA::register_callback);
+        register_method("remove_callback", &GodotGameIA::remove_callback);
         register_signal<GodotGameIA>("callback_ready", "id", GODOT_VARIANT_TYPE_INT, "message", GODOT_VARIANT_TYPE_STRING);
+        register_signal<GodotGameIA>("callback_disconnected", "id", GODOT_VARIANT_TYPE_INT, "message", GODOT_VARIANT_TYPE_STRING);
     }
     
     void GodotGameIA::send_message(String message, Variant chat_id) {
@@ -46,8 +48,15 @@ namespace godot {
             p_instance->call("gdscript_callback", message.c_str());
         });
 
-        String msg = "Hola aventurero!";
-        emit_signal("callback_ready", chat_id, msg);
+        p_instance->call("gdscript_callback", "¡Hola, aventurero!");
+        pImpl->dialog.send_message(chat_id, "(Beginning a new talk with 'aventurero')");
+
+        emit_signal("callback_ready", chat_id, " -- using signals");
     }
 
+    void GodotGameIA::remove_callback(Variant chat_id) {
+        pImpl->dialog.send_message(chat_id, "(End talk 'aventurero')");
+        pImpl->dialog.disconnect(chat_id);
+        emit_signal("callback_disconnected", chat_id, " -- using signals");
+    }
 }

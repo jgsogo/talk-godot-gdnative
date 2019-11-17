@@ -20,7 +20,7 @@ namespace godot {
         void send_message(String message, Variant chat_id);
 
         void register_callback(godot::Object *p_instance, Variant chat_id);
-
+        void remove_callback(Variant chat_id);
     protected:
         struct Impl;
         std::unique_ptr<Impl> pImpl;

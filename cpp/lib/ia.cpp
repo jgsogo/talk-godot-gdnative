@@ -8,7 +8,6 @@ namespace ia {
 
     void run_bot(TgBot::Bot* bot) {
         try {
-            //printf("Bot username: %s\n", bot->getApi().getMe()->username.c_str());
             TgBot::TgLongPoll longPoll(*bot);
             while (true) {
                 printf("Long poll started\n");
@@ -20,7 +19,7 @@ namespace ia {
     }
 
     struct DialogFlow::Impl {
-        Impl(const char* token) : _bot(token) {}
+        explicit Impl(const char* token) : _bot(token) {}
         TgBot::Bot _bot;
         std::map<int32_t, std::function<void (const std::string&)>> callbacks;
         std::thread bot_thread;
@@ -39,18 +38,17 @@ namespace ia {
             }
         });
 
-        //std::cout << "Launch thread" << std::endl;
         pImpl->bot_thread = std::thread{run_bot, &pImpl->_bot};
-        //std::cout << "After thread" << std::endl;
     }
 
-    DialogFlow::~DialogFlow() {}
+    DialogFlow::~DialogFlow() = default;
 
     void DialogFlow::connect(int32_t id, std::function<void (const std::string&)> callback) {
-        pImpl->callbacks[id] = callback;
+        pImpl->callbacks[id] = std::move(callback);
     }
 
-    void DialogFlow::disconnect() {
+    void DialogFlow::disconnect(int32_t id) {
+        pImpl->callbacks.erase(id);
     }
 
     void DialogFlow::send_message(int32_t id, const std::string& message) {

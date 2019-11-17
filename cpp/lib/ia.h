@@ -8,11 +8,11 @@ namespace ia {
 
     class DialogFlow {
         public:
-            DialogFlow(const char* token);
+            explicit DialogFlow(const char* token);
             ~DialogFlow();
 
             void connect(int32_t id, std::function<void (const std::string&)> callback);
-            void disconnect();
+            void disconnect(int32_t id);
 
             void send_message(int32_t id, const std::string&);
 
