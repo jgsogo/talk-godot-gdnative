@@ -22,8 +22,6 @@ namespace godot {
         void register_callback(godot::Object *p_instance, Variant chat_id);
 
     protected:
-        void received_message(int32_t id, const std::string& message);
-    protected:
         struct Impl;
         std::unique_ptr<Impl> pImpl;
     };

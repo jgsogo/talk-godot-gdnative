@@ -31,5 +31,4 @@ func _on_Input_text_entered(new_text):
 	_on_SendButton_pressed()
 
 func _on_PopupPanel_about_to_show():
-	print("_on_PopupPanel_about_to_show")
 	emit_signal("popup_show")
