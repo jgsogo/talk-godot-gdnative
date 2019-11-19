@@ -1,7 +1,8 @@
 extends Node2D
 
 onready var GodotGameIA = preload("res://package/bin/godot-game-ia.gdns").new()
-onready var chat_id = 118716073
+#onready var chat_id = 118716073
+onready var chat_id = 241884694
 
 func _ready():
 	GodotGameIA.connect("callback_ready", self, "_on_GodotGameIA_callback_ready")

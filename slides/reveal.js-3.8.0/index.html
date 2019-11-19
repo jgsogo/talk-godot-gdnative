@@ -124,7 +124,7 @@
 
                     <section>
                         <h2>GDScript example</h2>
-                        <pre><code class="hljs" data-trim data-noescape>
+                        <pre><code class="hljs gd" data-trim data-noescape>
                             # Hero.gd
                             extends LivingThing
 
@@ -134,7 +134,7 @@
                             func receive_impact(direction, damage):
                                 life_points = life_points - damage
                                 if life_points <= 0:
-                                emit_signal("killed", self)
+                                    emit_signal("killed", self)
                         </code></pre>
                         <p>Each file is a class</p>
                     </section>
@@ -406,8 +406,36 @@
                     </section>
 
                     <section data-background="images/callcenter.jpg">
+                        <aside class="notes" data-markdown>
+                            Puedes utilizar Telegram para montar tu chat dentro del juego
+                            ...utilizando cuentas personales (autorizar bot)
+                            ...metiendo a todos por el mismo canal
+                        </aside>
                     </section>
                 </section>
+
+                <section data-transition="convex">
+                    <section class="no-footer">
+                        <h2>Conclusions</h2>
+                        <ul>
+                            <li class="fragment">Use _any_ C++ library available</li>
+                            <li class="fragment">Help with performance</li>
+                            <li class="fragment">You need to generate those binaries yourself...</li>
+                            <li class="fragment">... for all the platforms (@conan_io we'll help you)</li>
+                            <li class="fragment">Godot is first-class citizen for game development</li>
+                        </ul>
+                    </section>
+
+                </section>
+
+                <!--
+                    Bibliography:
+                     * https://github.com/GodotNativeTools/godot-cpp
+                     * Godot docs: https://docs.godotengine.org/en/3.1/index.html
+                     * https://www.sisik.eu/blog/godot/gd-native-calling-gdscript-method-from-cpp-code
+                     * https://gamedevadventures.posthaven.com/using-c-plus-plus-and-gdnative-in-godot-part-1
+                     * https://auraforge.ca/2019/04/22/godot-networked-multiplayer-using-gdnative-c/
+                -->
 
 				<section data-transition="convex" class="no-footer">
 					<h1 class="lol">GDNative</h1>
