@@ -109,7 +109,7 @@
 
                 <section data-transition="convex">
                     <section class="no-footer">
-                        <h1>Godot 001</h1>
+                        <h1>Godot 000</h1>
                     </section>
 
                     <section>
@@ -219,19 +219,9 @@
                     
                     <section>
                         <h2>"C" interface</h2>
-                        <pre><code class="hljs cpp" data-trim data-noescape data-line-numbers="2, 17">
+                        <pre><code class="hljs cpp" data-trim data-noescape data-line-numbers="2, 7">
                             #include &lt;core/Godot.hpp>
                             #include "godot_ia.h"
-
-                            /** GDNative Initialize **/
-                            extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options *o) {
-                                godot::Godot::gdnative_init(o);
-                            }
-
-                            /** GDNative Terminate **/
-                            extern "C" void GDN_EXPORT godot_gdnative_terminate(godot_gdnative_terminate_options *o) {
-                                godot::Godot::gdnative_terminate(o);
-                            }
 
                             /** NativeScript Initialize **/
                             extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
@@ -412,17 +402,23 @@
                             ...metiendo a todos por el mismo canal
                         </aside>
                     </section>
+
+                    <section>
+                        <h2>Telegram</h2>
+                        <img data-src="images/godot-conan-graph.png" class="stretch">
+                        <p>Chat multijugador</p>
+                    </section>
                 </section>
 
                 <section data-transition="convex">
                     <section class="no-footer">
                         <h2>Conclusions</h2>
                         <ul>
+                            <li class="fragment">It's really easy to use C++ with Godot</li>
                             <li class="fragment">Use _any_ C++ library available</li>
                             <li class="fragment">Help with performance</li>
                             <li class="fragment">You need to generate those binaries yourself...</li>
                             <li class="fragment">... for all the platforms (@conan_io we'll help you)</li>
-                            <li class="fragment">Godot is first-class citizen for game development</li>
                         </ul>
                     </section>
 
